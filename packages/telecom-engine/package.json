@@ -1,0 +1,20 @@
+{
+  "name": "telecom-engine",
+  "version": "1.0.0",
+  "description": "Core matemático portable para simulación de transmisión en telecomunicaciones - ZERO dependencias externas",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "tsx src/index.ts"
+  },
+  "keywords": ["telecom", "modulation", "signal-processing", "ber", "encoding"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "tsx": "^4.7.0"
+  }
+}

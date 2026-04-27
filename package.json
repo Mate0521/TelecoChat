@@ -1,0 +1,22 @@
+{
+  "name": "telecomchat-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TelecomChat - Sistema de chat en tiempo real con simulación de capas física y de enlace de datos",
+  "workspaces": [
+    "packages/telecom-engine",
+    "packages/server",
+    "packages/client"
+  ],
+  "scripts": {
+    "dev:engine": "npm run dev -w telecom-engine",
+    "dev:server": "npm run dev -w server",
+    "dev:client": "npm run dev -w client",
+    "dev": "npm run dev:server & npm run dev:client",
+    "build": "npm run build -w telecom-engine && npm run build -w server && npm run build -w client",
+    "test:engine": "npm run test -w telecom-engine"
+  },
+  "keywords": ["telecom", "websocket", "realtime", "modulation", "networking"],
+  "author": "",
+  "license": "MIT"
+}
