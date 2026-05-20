@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build all packages
+        run: npm run build
+
+      - name: Check TypeScript (client)
+        working-directory: packages/client
+        run: npx tsc --noEmit
+
+      - name: Check TypeScript (server)
+        working-directory: packages/server
+        run: npx tsc --noEmit
+
+      - name: Check TypeScript (telecom-engine)
+        working-directory: packages/telecom-engine
+        run: npx tsc --noEmit
