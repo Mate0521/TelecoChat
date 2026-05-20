@@ -277,7 +277,7 @@ function drawInfo(
   modulationType: ModulationType,
   snr_dB: number,
   numPoints: number,
-  width: number,
+  _width: number,
   height: number
 ) {
   ctx.font = '10px "Courier New", monospace';
